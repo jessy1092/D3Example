@@ -1,6 +1,6 @@
-webTemplate
+D3Example
 =============
-A web template for simple frontend. Using gulp to build simple webserver and livereload.
+It's the D3 examples for personal pratice.
 
 ## Installation
 

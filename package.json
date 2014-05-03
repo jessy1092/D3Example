@@ -1,6 +1,6 @@
 {
-    "name"       : "webTemplate",
-    "description": "A web template for simple frontend. Using gulp to build simple webserver and livereload.",
+    "name"       : "D3Example",
+    "description": "It's the D3 examples for personal pratice",
     "version"    : "0.0.1",
     "contributor": [
         {
@@ -28,7 +28,7 @@
     "repository": [
         {
             "type": "git",
-            "url" : "https://github.com/jessy1092/webTemplate"
+            "url" : "https://github.com/jessy1092/D3Example"
         }
     ],
     "license": "MIT"
