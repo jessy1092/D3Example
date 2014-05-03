@@ -15,6 +15,7 @@ and then open `http://localhost:3000/`
 #### 2014/05/03 v0.0.1
 - init
 - Using gulp to build simple webserver and livereload
+- Add D3 exercise at 5/3 Kirby's D3 course.
 
 ## License
 
