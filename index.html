@@ -1,29 +1,35 @@
 <!doctype html>
-<html>
+<html ng-app="D3Example">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
         <title>WebTemplate</title>
 
-        <link rel="stylesheet" type="text/css" href="assets/styles/index.css"></link>
+        <link rel="stylesheet" type="text/css" href="vendors/semantic-ui/0.17.0/css/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/styles/global.css"></link>
 
         <script type="text/javascript" src="vendors/angular/1.2.16/angular.min.js"></script>
+        <script type="text/javascript" src="vendors/angular/1.2.16/angular-route.min.js"></script>
         <script type="text/javascript" src="vendors/jquery/1.11.1/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="vendors/d3js/3.4.6/d3.min.js"></script>
         <script type="text/javascript" src="vendors/semantic-ui/0.17.0/javascript/semantic.min.js"></script>
 
-        <script type="text/javascript" src="assets/scripts/index.js"></script>
+        <script type="text/javascript" src="assets/scripts/app.js"></script>
+        <script type="text/javascript" src="assets/scripts/controllers.js"></script>
     </head>
     <body>
-        <h2>ex1</h2>
-        <svg width="900px" height="200px" viewBox="0 0 900 200" preserveAspectRatio="xMidYMid" class="ex1">
+        <div class="ui center large menu" id="menu" ng-controller="menuCtrl">
+            <a ng-class="home" ng-click="changeClass('home')" href="#/home">
+                <i class="home icon"></i> Home
+            </a>
+            <a ng-class="d3ex1" ng-click="changeClass('d3ex1')" href="#/d3ex1">
+                <i class="signal icon"></i> 1st D3 excercise
+            </a>
+            <a ng-class="d3ex2" ng-click="changeClass('d3ex2')" href="#/d3ex2">
+                <i class="sitemap icon"></i> 2nd D3
+            </a>
+        </div>
 
-
-        <h2>ex2</h2>
-        <svg width="900px" height="900px" viewBox="0 0 900 900" preserveAspectRatio="xMidYMid" class="ex2">
-
-
-        <h2>ex3</h2>
-        <svg width="900px" height="900px" viewBox="0 0 900 900" preserveAspectRatio="xMidYMid" class="ex3">
+        <div ng-view id="container"></div>
     </body>
 </html>

@@ -1,6 +1,21 @@
-$(document).ready(function ()
-{
 
+angular.module('controllers', [])
+
+.controller('menuCtrl', function ($scope) {
+    $scope.home = 'active item';
+    $scope.d3ex1 = 'item';
+    $scope.d3ex2 = 'item';
+
+    $scope.changeClass = function (item) {
+        $scope.home = 'item';
+        $scope.d3ex1 = 'item';
+        $scope.d3ex2 = 'item';
+
+        $scope[item] = 'active item';
+    }
+})
+
+.controller('d3ex1Ctrl', function ($scope) {
     d3.json("./assets/data/data.json", function(data){
 
         // console.log(data);
@@ -89,4 +104,4 @@ $(document).ready(function ()
             "dominant-baseline": "central"
         }).text(function (d) { return d.value; });
     });
-});
+})
