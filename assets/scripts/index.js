@@ -1,7 +1,7 @@
 $(document).ready(function ()
 {
 
-    d3.json("./data/data.json", function(data){
+    d3.json("./assets/data/data.json", function(data){
 
         // console.log(data);
 
@@ -17,7 +17,7 @@ $(document).ready(function ()
     });
 
 
-    d3.json("./data/topic2-2.json", function(data) {
+    d3.json("./assets/data/topic2-2.json", function(data) {
 
         var redius = d3.scale.pow().exponent(4).domain([0,100]).range([50,800]);
 
@@ -58,7 +58,7 @@ $(document).ready(function ()
         })
     });
 
-    d3.json("./data/topic2.json", function(data){
+    d3.json("./assets/data/topic2.json", function(data){
 
         var dataNode = {children: data.map(function(value) { return {value: value}})};
 
