@@ -11,6 +11,10 @@ angular.module('D3Example', ['ngRoute', 'controllers'])
             templateUrl: './views/d3ex1.html',
             controller: 'd3ex1Ctrl'
         })
+        .when('/d3ex2', {
+            templateUrl: './views/d3ex2.html',
+            controller: 'd3ex2Ctrl'
+        })
         .otherwise({
             redirectTo: '/home'
         });
