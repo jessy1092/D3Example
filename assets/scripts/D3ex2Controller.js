@@ -16,11 +16,7 @@ angular.module('D3ex2Controller', [])
         })
 
         d3.select('.ex2').selectAll('circle').on('click', function () {
-            if (clickTag == 0) {
-                clickTag = 1;
-            } else {
-                clickTag = 0;
-            }
+            clickTag = ++clickTag % 2;
             sortBar();
         });
 
@@ -81,15 +77,7 @@ angular.module('D3ex2Controller', [])
         });
 
         d3.select(".ex3").selectAll("circle.data").on('click', function () {
-            if (clickTag == 0) {
-                clickTag = 1;
-            } else if (clickTag == 1) {
-                clickTag = 2;
-            } else if (clickTag == 2) {
-                clickTag = 3;
-            } else {
-                clickTag = 0;
-            }
+            clickTag = ++clickTag % 4;
             sortData();
         });
 
@@ -134,19 +122,6 @@ angular.module('D3ex2Controller', [])
         var d3Pack = d3.layout.pack().size([500, 500]).nodes(dataNode);
         d3Pack.shift();
 
-        d3.select(".ex4").selectAll("circle.pack").on('click', function () {
-            var d3PackTmp;
-            if (clickTag == 0) {
-                clickTag = 1;
-                d3PackTmp = d3.layout.pack().size([500, 500]).sort(function (a, b) { return b.value - a.value;}).nodes(dataNode);
-            } else {
-                clickTag = 0;
-                d3PackTmp = d3.layout.pack().size([500, 500]).sort(function (a, b) { return a.value - b.value;}).nodes(dataNode);
-            }
-            d3PackTmp.shift();
-            ex4CreatePack(d3PackTmp);
-        });
-
         var ex4CreatePack = function (d3Pack) {
             var colorScale = d3.scale.linear().domain([1, 10]).range(["#00f", "#0f0"]);
 
@@ -174,5 +149,20 @@ angular.module('D3ex2Controller', [])
         };
 
         ex4CreatePack(d3Pack);
+
+        d3.select(".ex4").selectAll("circle.pack").on('click', function () {
+            clickTag = ++clickTag % 2;
+
+            var d3PackTmp = d3.layout.pack().size([500, 500]).sort(function (a, b) {
+                if (clickTag == 0) {
+                    return b.value - a.value;
+                } else {
+                    return a.value - b.value;
+                }
+            }).nodes(dataNode);
+
+            d3PackTmp.shift();
+            ex4CreatePack(d3PackTmp);
+        });
     });
 });
