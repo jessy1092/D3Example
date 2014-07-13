@@ -3,7 +3,7 @@ angular.module('D3ex2Controller', [])
 
 .controller('d3ex2Ctrl', function ($scope, $http) {
 
-    d3.json('/assets/data/data.json', function (data) {
+    d3.json('./assets/data/data.json', function (data) {
         var clickTag = 1;
 
         var v3 = d3.select('.ex2').selectAll('circle').data(data);
@@ -38,7 +38,7 @@ angular.module('D3ex2Controller', [])
         };
     })
 
-    d3.json('/assets/data/topic2-2.json', function (data) {
+    d3.json('./assets/data/topic2-2.json', function (data) {
         var clickTag = 2;
 
         var scaleX = d3.scale.pow().exponent(4).domain([0, 100]).range([50, 450]);
