@@ -9,7 +9,8 @@
         }
     ],
     "scripts": {
-        "start": "gulp dev"
+        "start": "gulp dev",
+        "parser": "node ./parser/parser.js"
     },
     "engines":{
         "node": "0.10.x"
