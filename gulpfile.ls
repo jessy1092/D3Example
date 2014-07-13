@@ -3,24 +3,28 @@ require! <[gulp gulp-util express connect-livereload tiny-lr gulp-livereload pat
 app = express!
 lr = tiny-lr!
 
-gulp.task 'css' ->
-    gulp.src './css/*.css'
+gulp.task 'html' ->
+    gulp.src './views/*.html'
         .pipe gulp-livereload lr
 
-gulp.task 'html' ->
-    gulp.src './*.html'
+gulp.task 'index' ->
+    gulp.src './index.html'
         .pipe gulp-livereload lr
 
 gulp.task 'js' ->
-    gulp.src './js/*.js'
+    gulp.src './assets/scripts/*.js'
         .pipe gulp-livereload lr
 
 gulp.task 'img' ->
-    gulp.src './img/*'
+    gulp.src './assets/imgs/*'
+        .pipe gulp-livereload lr
+
+gulp.task 'css' ->
+    gulp.src './assets/styles/*.css'
         .pipe gulp-livereload lr
 
 gulp.task 'data' ->
-    gulp.src './data/*'
+    gulp.src './assets/data/*'
         .pipe gulp-livereload lr
 
 gulp.task 'server', ->
@@ -32,11 +36,12 @@ gulp.task 'server', ->
 gulp.task 'watch', ->
     lr.listen 35729, ->
         return gulp-util.log it if it
-    gulp.watch './*.html', <[html]>
-    gulp.watch './js/*.js', <[js]>
-    gulp.watch './img/*', <[img]>
-    gulp.watch './css/*.css', <[css]>
-    gulp.watch './data/*', <[data]>
+    gulp.watch './views/*.html', <[html]>
+    gulp.watch './index.html', <[index]>
+    gulp.watch './assets/scripts/*.js', <[js]>
+    gulp.watch './assets/imgs/*', <[img]>
+    gulp.watch './assets/styles/*.css', <[css]>
+    gulp.watch './assets/data/*', <[data]>
 
 gulp.task 'dev', <[server watch]>
 gulp.task 'default', <[build]>
